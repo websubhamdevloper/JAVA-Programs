@@ -32,7 +32,7 @@ public class Bank {
     public static void main(String[] args){
         SavingAccount savings = new SavingAccount();
         FdAccount fixedDeposit = new FdAccount();
-
+        System.out.println("Hello World");
         savings.acc();
         fixedDeposit.acc();
 
