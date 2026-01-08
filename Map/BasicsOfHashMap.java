@@ -47,6 +47,37 @@ public class BasicsOfHashMap {
         HashMap copymap = (HashMap)cpname.clone();
         System.out.println(copymap);
 
+        cpname.compute("England", (k, v) -> v + "(" + k + ")");
+        System.out.println(cpname);
+
+        cpname.computeIfAbsent("Canada", (k) -> "Toronto");
+        System.out.println(cpname);
+
+        cpname.computeIfPresent("India", (k, v) -> v);
+        System.out.println(cpname);
+
+        System.out.println("Does cpname contains England ? " + cpname.containsKey("England"));
+        System.out.println("Does cpname contains Capital of Canada? " + cpname.containsValue("Toronto"));
+
+        System.out.println(cpname.entrySet());
+
+        cpname.forEach((k, v) -> {
+            System.out.println(k + " -> " + v);
+        });
+
+        System.out.println(cpname.getOrDefault("England", "Unknown"));
+
+        cpname.merge("England", "London", (a, b) -> a + " -> " + b);
+        cpname.merge("Canada", "Ottawa", (a, b) -> a + " -> " + b);
+        System.out.println(cpname);
+
+        var morecities = new HashMap<String, String>();
+        morecities.put("Japan", "Tokyo");
+        morecities.put("Germany", "Berlin");
+        cpname.putAll(morecities);
+        System.out.println(cpname);
+
         cpname.clear();
+        System.out.println("Is the cpname empty? " + cpname.isEmpty());
     }
 }
